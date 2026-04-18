@@ -72,10 +72,40 @@ function UserCard({ data, userId, year }: { data: AppData; userId: UserId; year:
   );
 }
 
+function ReminderBanner({ year }: { year: number }) {
+  const today = new Date();
+  const yearEnd = new Date(year, 11, 31);
+  const onestopDeadline = new Date(year + 1, 0, 10); // 翌年1/10
+  const daysLeft = Math.ceil((yearEnd.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  const daysToOnestop = Math.ceil((onestopDeadline.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+
+  if (daysLeft > 60) return null;
+
+  return (
+    <div className="space-y-2 mb-4">
+      {daysLeft <= 60 && daysLeft > 0 && (
+        <div className={`rounded-xl p-3 text-sm font-medium flex items-center gap-2 ${
+          daysLeft <= 14 ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
+        }`}>
+          <span>⚠️</span>
+          <span>ふるさと納税の締め切りまであと <strong>{daysLeft}日</strong>（{year}/12/31）</span>
+        </div>
+      )}
+      {daysLeft <= 0 && daysToOnestop > 0 && (
+        <div className="bg-orange-100 text-orange-700 rounded-xl p-3 text-sm font-medium flex items-center gap-2">
+          <span>📮</span>
+          <span>ワンストップ特例の申請期限まであと <strong>{daysToOnestop}日</strong>（{year + 1}/1/10）</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Dashboard({ data, year }: Props) {
   return (
     <div>
       <h1 className="text-xl font-bold text-gray-700 mb-4">{year}年 寄付状況</h1>
+      <ReminderBanner year={year} />
       <div className="flex gap-4 flex-col sm:flex-row">
         <UserCard data={data} userId="rino" year={year} />
         <UserCard data={data} userId="haha" year={year} />

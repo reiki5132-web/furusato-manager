@@ -22,6 +22,8 @@ export default function DonationForm({ initialData, defaultUserId = 'rino', year
     taxMethod: initialData?.taxMethod ?? 'onestop',
     receiptReceived: initialData?.receiptReceived ?? false,
     year: initialData?.year ?? year,
+    giftStatus: initialData?.giftStatus ?? 'unsent',
+    giftScheduledMonth: initialData?.giftScheduledMonth ?? '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {

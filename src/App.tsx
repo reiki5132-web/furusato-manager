@@ -6,14 +6,16 @@ import {
 } from './store';
 import Dashboard from './components/Dashboard';
 import DonationList from './components/DonationList';
+import GiftTracker from './components/GiftTracker';
 import Settings from './components/Settings';
 import './index.css';
 
-type Tab = 'dashboard' | 'donations' | 'settings';
+type Tab = 'dashboard' | 'donations' | 'gifts' | 'settings';
 
 const NAV_ITEMS: { id: Tab; label: string; icon: string }[] = [
   { id: 'dashboard', label: 'ホーム', icon: '🏠' },
   { id: 'donations', label: '寄付記録', icon: '📋' },
+  { id: 'gifts', label: '返礼品', icon: '🎁' },
   { id: 'settings', label: '設定', icon: '⚙️' },
 ];
 
@@ -60,6 +62,13 @@ export default function App() {
             onAdd={handleAddDonation}
             onUpdate={handleUpdateDonation}
             onDelete={handleDeleteDonation}
+          />
+        )}
+        {tab === 'gifts' && (
+          <GiftTracker
+            data={data}
+            year={year}
+            onUpdate={handleUpdateDonation}
           />
         )}
         {tab === 'settings' && <Settings data={data} onUpdate={handleUpdateProfile} />}
