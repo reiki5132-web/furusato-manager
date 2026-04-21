@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="6" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.25"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#bg1)"/>
+  <g filter="url(#softShadow)">
+    <rect x="116" y="230" width="280" height="200" rx="14" fill="#ffffff"/>
+    <rect x="116" y="230" width="280" height="48" rx="10" fill="#fff7ed"/>
+    <rect x="242" y="230" width="28" height="200" fill="#f97316"/>
+    <path d="M256 230 C 210 180, 150 180, 170 140 C 190 100, 256 130, 256 170 C 256 130, 322 100, 342 140 C 362 180, 302 180, 256 230 Z"
+          fill="#ffffff" stroke="#f97316" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+</svg>
