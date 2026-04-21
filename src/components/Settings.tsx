@@ -73,7 +73,8 @@ function UserSettings({ user, onUpdate }: { user: UserProfile; onUpdate: (p: Use
             value={manual}
             onChange={e => setManual(e.target.value)}
             placeholder="例：50000"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm mb-3"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-3"
+            style={{ fontSize: '16px' }}
           />
         </div>
       ) : (
