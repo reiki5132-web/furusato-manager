@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/furusato-manager/sw.js', { scope: '/furusato-manager/' })})}
