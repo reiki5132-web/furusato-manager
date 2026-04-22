@@ -51,7 +51,6 @@ export default function GiftTracker({ data, year, onUpdate }: Props) {
 
       {donations.length === 0 ? (
         <div className="bg-white border border-[#e7e5e4] rounded p-10 text-center text-[#78716c]">
-          <p className="text-3xl mb-2">🎁</p>
           <p className="text-sm">返礼品のある寄付記録がありません</p>
           <p className="text-xs mt-1">寄付記録に返礼品名を入力してください</p>
         </div>

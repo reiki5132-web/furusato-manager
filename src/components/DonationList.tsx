@@ -102,7 +102,6 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
 
       {filtered.length === 0 ? (
         <div className="bg-white border border-[#e7e5e4] rounded p-10 text-center text-[#78716c]">
-          <p className="text-3xl mb-2">📭</p>
           <p className="text-sm">寄付記録がありません</p>
         </div>
       ) : (
