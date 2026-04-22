@@ -43,84 +43,99 @@ function UserSettings({ user, onUpdate }: { user: UserProfile; onUpdate: (p: Use
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow p-5">
-      <h2 className="font-bold text-gray-800 mb-4">{user.name} の設定</h2>
-
-      <div className="flex gap-2 mb-4">
-        <button
-          onClick={() => setMode('manual')}
-          className={`flex-1 text-sm py-2 rounded-lg font-medium transition-colors ${
-            mode === 'manual' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'
-          }`}
-        >
-          手動入力
-        </button>
-        <button
-          onClick={() => setMode('calc')}
-          className={`flex-1 text-sm py-2 rounded-lg font-medium transition-colors ${
-            mode === 'calc' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'
-          }`}
-        >
-          簡易計算
-        </button>
+    <div>
+      {/* 見出し：明朝・大きめ・朱印ドット */}
+      <div className="flex items-baseline mb-2 px-1">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#b91c1c] mr-2 self-center" />
+        <span className="font-mincho text-xl font-bold text-[#0c0a09]">{user.name}</span>
+        <span className="text-xs text-[#78716c] ml-2">の設定</span>
       </div>
 
-      {mode === 'manual' ? (
-        <div>
-          <label className="block text-sm text-gray-600 mb-1 whitespace-nowrap">年間控除上限額（円）</label>
-          <input
-            type="number"
-            value={manual}
-            onChange={e => setManual(e.target.value)}
-            placeholder="例：50000"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-3"
-            style={{ fontSize: '16px' }}
-          />
-        </div>
-      ) : (
-        <div className="space-y-3 mb-3">
-          <div>
-            <label className="block text-sm text-gray-600 mb-1">年収</label>
-            <select
-              value={incomeIdx}
-              onChange={e => setIncomeIdx(Number(e.target.value))}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
+      <div className="bg-white border border-[#e7e5e4] rounded relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[3px] h-full bg-[#b91c1c]" />
+        <div className="p-5">
+          <div className="flex gap-2 mb-4">
+            <button
+              onClick={() => setMode('manual')}
+              className={`flex-1 text-sm py-2 rounded font-semibold transition-colors ${
+                mode === 'manual' ? 'bg-[#0c0a09] text-white' : 'bg-[#fafaf9] border border-[#e7e5e4] text-[#78716c]'
+              }`}
             >
-              {INCOME_BRACKETS.map((b, i) => (
-                <option key={i} value={i}>{b.label}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-600 mb-1">家族構成</label>
-            <select
-              value={familyKey}
-              onChange={e => setFamilyKey(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm"
+              手動入力
+            </button>
+            <button
+              onClick={() => setMode('calc')}
+              className={`flex-1 text-sm py-2 rounded font-semibold transition-colors ${
+                mode === 'calc' ? 'bg-[#0c0a09] text-white' : 'bg-[#fafaf9] border border-[#e7e5e4] text-[#78716c]'
+              }`}
             >
-              {FAMILY_TYPES.map(f => (
-                <option key={f.key} value={f.key}>{f.label}</option>
-              ))}
-            </select>
+              簡易計算
+            </button>
           </div>
-          <div className="bg-orange-50 rounded-lg p-3 text-center">
-            <p className="text-xs text-gray-500 mb-1">概算上限額</p>
-            <p className="text-2xl font-bold text-orange-600">¥{calcLimit().toLocaleString()}</p>
-            <p className="text-xs text-gray-400 mt-1">※ 目安です。正確な額はシミュレーションサイトでご確認ください</p>
-          </div>
-        </div>
-      )}
 
-      <div className="flex items-center justify-between">
-        {user.limitAmount > 0 && (
-          <span className="text-xs text-gray-400">現在: ¥{user.limitAmount.toLocaleString()}</span>
-        )}
-        <button
-          onClick={handleSave}
-          className="ml-auto bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-5 py-2 rounded-xl transition-colors"
-        >
-          保存
-        </button>
+          {mode === 'manual' ? (
+            <div>
+              <label className="block text-xs text-[#78716c] mb-1.5">年間控除上限額（円）</label>
+              <div className="flex gap-2">
+                <input
+                  type="number"
+                  value={manual}
+                  onChange={e => setManual(e.target.value)}
+                  placeholder="例：50000"
+                  className="flex-1 border border-[#b91c1c] rounded px-3 py-2 font-mincho text-[#0c0a09] focus:outline-none"
+                />
+                <button
+                  onClick={handleSave}
+                  className="bg-[#b91c1c] hover:bg-[#991b1b] text-white text-sm font-semibold px-5 rounded transition-colors"
+                >
+                  保存
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div>
+                <label className="block text-xs text-[#78716c] mb-1.5">年収</label>
+                <select
+                  value={incomeIdx}
+                  onChange={e => setIncomeIdx(Number(e.target.value))}
+                  className="w-full border border-[#e7e5e4] rounded px-3 py-2 text-sm bg-white"
+                >
+                  {INCOME_BRACKETS.map((b, i) => (
+                    <option key={i} value={i}>{b.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs text-[#78716c] mb-1.5">家族構成</label>
+                <select
+                  value={familyKey}
+                  onChange={e => setFamilyKey(e.target.value)}
+                  className="w-full border border-[#e7e5e4] rounded px-3 py-2 text-sm bg-white"
+                >
+                  {FAMILY_TYPES.map(f => (
+                    <option key={f.key} value={f.key}>{f.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="bg-[#fef2f2] border border-[#fecaca] rounded p-3 text-center">
+                <p className="text-xs text-[#78716c] mb-1">概算上限額</p>
+                <p className="font-mincho text-2xl font-bold text-[#b91c1c]">¥{calcLimit().toLocaleString()}</p>
+                <p className="text-[10px] text-[#78716c] mt-1">※ 目安です。正確な額はシミュレーションサイトでご確認ください</p>
+              </div>
+              <button
+                onClick={handleSave}
+                className="w-full bg-[#b91c1c] hover:bg-[#991b1b] text-white text-sm font-semibold py-2.5 rounded transition-colors"
+              >
+                保存
+              </button>
+            </div>
+          )}
+
+          {user.limitAmount > 0 && (
+            <p className="text-xs text-[#78716c] mt-3">現在：¥{user.limitAmount.toLocaleString()}</p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -129,8 +144,10 @@ function UserSettings({ user, onUpdate }: { user: UserProfile; onUpdate: (p: Use
 export default function Settings({ data, onUpdate }: Props) {
   return (
     <div>
-      <h1 className="text-xl font-bold text-gray-700 mb-4">設定</h1>
-      <div className="space-y-4">
+      <div className="mb-5 pt-2">
+        <h1 className="font-mincho text-2xl font-bold text-[#0c0a09] wa-dot">設定</h1>
+      </div>
+      <div className="space-y-5">
         {(['rino', 'haha'] as UserId[]).map(uid => (
           <UserSettings key={uid} user={data.users[uid]} onUpdate={onUpdate} />
         ))}

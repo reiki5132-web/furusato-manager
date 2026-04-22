@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="'Hiragino Sans','Yu Gothic',sans-serif">
+  <defs>
+    <pattern id="asanohaC" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M16 0 L32 16 L16 32 L0 16 Z" fill="none" stroke="#1e3a5f" stroke-width="0.7" opacity="0.1"/>
+      <path d="M0 0 L32 32 M32 0 L0 32" stroke="#1e3a5f" stroke-width="0.7" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <rect width="390" height="844" fill="#ffffff"/>
+  <rect width="390" height="170" fill="url(#asanohaC)"/>
+
+  <!-- Status bar -->
+  <text x="28" y="30" font-size="14" font-weight="600" fill="#1e3a5f">17:50</text>
+
+  <!-- Header — vertical accent line -->
+  <line x1="24" y1="60" x2="24" y2="120" stroke="#b91c1c" stroke-width="2"/>
+  <text x="40" y="85" font-size="24" font-weight="700" fill="#1e3a5f" font-family="'Hiragino Mincho ProN','Yu Mincho',serif">ホーム</text>
+  <text x="40" y="108" font-size="11" fill="#64748b" letter-spacing="2">2026年 寄付状況</text>
+
+  <!-- Summary card -->
+  <rect x="20" y="160" width="350" height="130" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="2"/>
+  <rect x="20" y="160" width="350" height="32" fill="#1e3a5f" rx="2"/>
+  <text x="40" y="182" font-size="12" font-weight="600" fill="#ffffff" letter-spacing="2">年間上限額 合計</text>
+  <text x="40" y="232" font-size="32" font-weight="700" fill="#0f172a" font-family="'Hiragino Mincho ProN',serif">¥124,000</text>
+  <text x="40" y="256" font-size="11" fill="#64748b">使用額  ¥0  ／  残り  ¥124,000</text>
+  <rect x="40" y="268" width="310" height="4" fill="#f1f5f9" rx="2"/>
+  <rect x="40" y="268" width="0" height="4" fill="#b91c1c" rx="2"/>
+
+  <!-- Section heading -->
+  <line x1="20" y1="320" x2="40" y2="320" stroke="#b91c1c" stroke-width="2"/>
+  <text x="48" y="325" font-size="13" font-weight="700" fill="#1e3a5f" font-family="'Hiragino Mincho ProN',serif" letter-spacing="1">家族メンバー</text>
+  <line x1="150" y1="320" x2="370" y2="320" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Member card りの -->
+  <rect x="20" y="340" width="350" height="88" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="2"/>
+  <rect x="20" y="340" width="4" height="88" fill="#b91c1c"/>
+  <g transform="translate(55 384)">
+    <ellipse cx="0" cy="0" rx="18" ry="18" fill="#f8fafc" stroke="#1e3a5f" stroke-width="1.5"/>
+    <ellipse cx="-6" cy="-11" rx="2" ry="8" fill="#fbcfe8" stroke="#1e3a5f" stroke-width="1.2"/>
+    <ellipse cx="6" cy="-11" rx="2" ry="8" fill="#fbcfe8" stroke="#1e3a5f" stroke-width="1.2"/>
+  </g>
+  <text x="95" y="370" font-size="16" font-weight="700" fill="#0f172a" font-family="'Hiragino Mincho ProN',serif">りの</text>
+  <text x="95" y="392" font-size="11" fill="#64748b">上限 ¥44,000</text>
+  <text x="95" y="410" font-size="11" fill="#64748b">残り ¥44,000</text>
+  <text x="352" y="370" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="end">100%</text>
+  <rect x="252" y="380" width="100" height="4" fill="#f1f5f9" rx="2"/>
+  <rect x="252" y="380" width="100" height="4" fill="#1e3a5f" rx="2"/>
+
+  <!-- Member card 母 -->
+  <rect x="20" y="440" width="350" height="88" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="2"/>
+  <rect x="20" y="440" width="4" height="88" fill="#b91c1c"/>
+  <g transform="translate(55 484)">
+    <ellipse cx="0" cy="0" rx="18" ry="18" fill="#f8fafc" stroke="#1e3a5f" stroke-width="1.5"/>
+    <ellipse cx="-6" cy="-11" rx="2" ry="8" fill="#fbcfe8" stroke="#1e3a5f" stroke-width="1.2"/>
+    <ellipse cx="6" cy="-11" rx="2" ry="8" fill="#fbcfe8" stroke="#1e3a5f" stroke-width="1.2"/>
+  </g>
+  <text x="95" y="470" font-size="16" font-weight="700" fill="#0f172a" font-family="'Hiragino Mincho ProN',serif">母</text>
+  <text x="95" y="492" font-size="11" fill="#64748b">上限 ¥80,000</text>
+  <text x="95" y="510" font-size="11" fill="#64748b">残り ¥80,000</text>
+  <text x="352" y="470" font-size="13" font-weight="700" fill="#1e3a5f" text-anchor="end">100%</text>
+  <rect x="252" y="480" width="100" height="4" fill="#f1f5f9" rx="2"/>
+  <rect x="252" y="480" width="100" height="4" fill="#1e3a5f" rx="2"/>
+
+  <!-- CTA -->
+  <rect x="20" y="570" width="350" height="50" fill="#1e3a5f" rx="2"/>
+  <text x="195" y="602" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">＋ 寄付を記録する</text>
+
+  <rect x="20" y="632" width="350" height="46" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.5" rx="2"/>
+  <text x="195" y="661" font-size="14" font-weight="600" fill="#1e3a5f" text-anchor="middle">返礼品を追加</text>
+
+  <!-- Bottom nav -->
+  <line x1="0" y1="770" x2="390" y2="770" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="0" y="770" width="390" height="74" fill="#f8fafc"/>
+  <g font-size="10" text-anchor="middle">
+    <text x="63" y="815" font-weight="700" fill="#1e3a5f">ホーム</text>
+    <rect x="48" y="793" width="30" height="2" fill="#b91c1c"/>
+    <text x="158" y="815" fill="#94a3b8">寄付記録</text>
+    <text x="253" y="815" fill="#94a3b8">返礼品</text>
+    <text x="347" y="815" fill="#94a3b8">設定</text>
+  </g>
+</svg>

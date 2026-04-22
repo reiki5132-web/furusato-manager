@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" font-family="'Hiragino Sans','Yu Gothic',sans-serif">
+  <defs>
+    <pattern id="asanoha3" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <g stroke="#78716c" stroke-width="0.6" fill="none" opacity="0.18">
+        <path d="M24 0 L48 24 L24 48 L0 24 Z"/>
+        <path d="M0 0 L48 48 M48 0 L0 48"/>
+        <path d="M24 0 L24 48 M0 24 L48 24"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="#faf7f2"/>
+  <rect width="390" height="844" fill="url(#asanoha3)"/>
+
+  <text x="28" y="30" font-size="14" font-weight="600" fill="#0c0a09">17:50</text>
+
+  <circle cx="20" cy="80" r="3" fill="#b91c1c"/>
+  <text x="24" y="90" font-size="24" font-weight="700" fill="#0c0a09" font-family="'Hiragino Mincho ProN','Yu Mincho',serif">設定</text>
+
+  <!-- ============ りの ============ -->
+  <g transform="translate(0 0)">
+    <circle cx="20" cy="142" r="3" fill="#b91c1c"/>
+    <text x="24" y="148" font-size="20" font-weight="700" fill="#0c0a09" font-family="'Hiragino Mincho ProN','Yu Mincho',serif">りの</text>
+    <text x="76" y="147" font-size="12" fill="#78716c">の設定</text>
+  </g>
+
+  <rect x="20" y="162" width="350" height="180" fill="#ffffff" stroke="#e7e5e4" stroke-width="1" rx="4"/>
+  <rect x="20" y="162" width="3" height="180" fill="#b91c1c"/>
+
+  <rect x="40" y="182" width="155" height="38" fill="#0c0a09" rx="4"/>
+  <text x="117" y="206" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">手動入力</text>
+  <rect x="200" y="182" width="155" height="38" fill="#fafaf9" stroke="#e7e5e4" stroke-width="1" rx="4"/>
+  <text x="277" y="206" font-size="13" fill="#78716c" text-anchor="middle">簡易計算</text>
+
+  <text x="40" y="247" font-size="11" fill="#78716c">年間控除上限額（円）</text>
+  <rect x="40" y="255" width="230" height="42" fill="#ffffff" stroke="#b91c1c" stroke-width="1.5" rx="4"/>
+  <text x="52" y="282" font-size="16" fill="#0c0a09" font-family="'Hiragino Mincho ProN',serif">44,000</text>
+  <rect x="280" y="255" width="75" height="42" fill="#b91c1c" rx="4"/>
+  <text x="317" y="282" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">保存</text>
+
+  <text x="40" y="322" font-size="11" fill="#78716c">現在：¥44,000</text>
+
+  <!-- ============ 母 ============ -->
+  <g transform="translate(0 0)">
+    <circle cx="20" cy="392" r="3" fill="#b91c1c"/>
+    <text x="24" y="398" font-size="20" font-weight="700" fill="#0c0a09" font-family="'Hiragino Mincho ProN','Yu Mincho',serif">母</text>
+    <text x="54" y="397" font-size="12" fill="#78716c">の設定</text>
+  </g>
+
+  <rect x="20" y="412" width="350" height="180" fill="#ffffff" stroke="#e7e5e4" stroke-width="1" rx="4"/>
+  <rect x="20" y="412" width="3" height="180" fill="#b91c1c"/>
+
+  <rect x="40" y="432" width="155" height="38" fill="#0c0a09" rx="4"/>
+  <text x="117" y="456" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">手動入力</text>
+  <rect x="200" y="432" width="155" height="38" fill="#fafaf9" stroke="#e7e5e4" stroke-width="1" rx="4"/>
+  <text x="277" y="456" font-size="13" fill="#78716c" text-anchor="middle">簡易計算</text>
+
+  <text x="40" y="497" font-size="11" fill="#78716c">年間控除上限額（円）</text>
+  <rect x="40" y="505" width="230" height="42" fill="#ffffff" stroke="#e7e5e4" stroke-width="1" rx="4"/>
+  <text x="52" y="532" font-size="16" fill="#0c0a09" font-family="'Hiragino Mincho ProN',serif">80,000</text>
+  <rect x="280" y="505" width="75" height="42" fill="#b91c1c" rx="4"/>
+  <text x="317" y="532" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">保存</text>
+
+  <text x="40" y="572" font-size="11" fill="#78716c">現在：¥80,000</text>
+
+  <!-- Add member -->
+  <rect x="20" y="630" width="350" height="46" fill="#0c0a09" rx="4"/>
+  <text x="195" y="659" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">＋ メンバーを追加</text>
+
+  <!-- Bottom nav -->
+  <rect x="0" y="760" width="390" height="84" fill="#ffffff"/>
+  <line x1="0" y1="760" x2="390" y2="760" stroke="#e7e5e4" stroke-width="1"/>
+
+  <g transform="translate(49 790)" stroke="#78716c" stroke-width="1.8" fill="none" stroke-linejoin="round">
+    <path d="M -10 2 L 0 -8 L 10 2 L 10 10 L -10 10 Z" fill="#ffffff"/>
+    <path d="M -4 10 L -4 4 L 4 4 L 4 10"/>
+  </g>
+  <text x="49" y="828" font-size="11" fill="#78716c" text-anchor="middle">ホーム</text>
+
+  <g transform="translate(146 790)" stroke="#78716c" stroke-width="1.8" fill="none" stroke-linejoin="round">
+    <rect x="-8" y="-9" width="16" height="20" rx="1.5" fill="#ffffff"/>
+    <rect x="-4" y="-12" width="8" height="5" rx="1" fill="#fafaf9"/>
+    <line x1="-4" y1="-2" x2="4" y2="-2"/>
+    <line x1="-4" y1="3" x2="4" y2="3"/>
+    <line x1="-4" y1="8" x2="2" y2="8"/>
+  </g>
+  <text x="146" y="828" font-size="11" fill="#78716c" text-anchor="middle">寄付記録</text>
+
+  <g transform="translate(243 790)" stroke="#78716c" stroke-width="1.8" fill="none" stroke-linejoin="round">
+    <rect x="-10" y="-4" width="20" height="14" rx="1.5" fill="#ffffff"/>
+    <rect x="-11" y="-7" width="22" height="5" rx="1" fill="#ffffff"/>
+    <line x1="0" y1="-7" x2="0" y2="10"/>
+    <path d="M 0 -7 C -6 -14, -12 -10, -6 -7" fill="#ffffff"/>
+    <path d="M 0 -7 C 6 -14, 12 -10, 6 -7" fill="#ffffff"/>
+  </g>
+  <text x="243" y="828" font-size="11" fill="#78716c" text-anchor="middle">返礼品</text>
+
+  <rect x="316" y="760" width="50" height="3" fill="#b91c1c"/>
+  <g transform="translate(340 790)" stroke="#b91c1c" stroke-width="1.8" fill="none" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="4" fill="#fef2f2"/>
+    <g stroke-linecap="round">
+      <line x1="0" y1="-11" x2="0" y2="-7"/>
+      <line x1="0" y1="11" x2="0" y2="7"/>
+      <line x1="-11" y1="0" x2="-7" y2="0"/>
+      <line x1="11" y1="0" x2="7" y2="0"/>
+      <line x1="-8" y1="-8" x2="-5" y2="-5"/>
+      <line x1="8" y1="-8" x2="5" y2="-5"/>
+      <line x1="-8" y1="8" x2="-5" y2="5"/>
+      <line x1="8" y1="8" x2="5" y2="5"/>
+    </g>
+  </g>
+  <text x="340" y="828" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">設定</text>
+</svg>
