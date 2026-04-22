@@ -1,7 +1,7 @@
 import sharp from 'sharp'
 import { readFileSync } from 'node:fs'
 
-const src = readFileSync('design/icon-furoshiki.svg')
+const src = readFileSync('design/wa-e-usagi.svg')
 
 const targets = [
   { out: 'public/icon-192.png', size: 192 },

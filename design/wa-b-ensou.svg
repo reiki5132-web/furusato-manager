@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafaf9"/>
+      <stop offset="100%" stop-color="#e7e5e4"/>
+    </linearGradient>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="5" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="14"/>
+    </filter>
+    <filter id="edgeDry" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="n"/>
+      <feColorMatrix in="n" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.8 1.4" result="mask"/>
+      <feComposite in="SourceGraphic" in2="mask" operator="in"/>
+    </filter>
+    <!-- soft paper noise -->
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.2  0 0 0 0 0.15  0 0 0 0 0.1  0 0 0 0.05 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="110" fill="url(#bgB)"/>
+  <rect width="512" height="512" rx="110" fill="#000" filter="url(#paper)"/>
+
+  <!-- enso: a single expressive path with thickness variation via multiple layers -->
+  <g transform="translate(256 252)">
+    <!-- outer soft ink bleed -->
+    <path d="M 138 -30
+             C 170 70, 80 170, -40 160
+             C -170 150, -180 30, -130 -70
+             C -80 -170, 60 -190, 130 -130
+             C 168 -98, 160 -70, 128 -55"
+          fill="none" stroke="#0c0a09" stroke-width="64" stroke-linecap="round"
+          opacity="0.15"/>
+    <!-- main bold ink stroke with rough edge -->
+    <path d="M 138 -30
+             C 170 70, 80 170, -40 160
+             C -170 150, -180 30, -130 -70
+             C -80 -170, 60 -190, 130 -130
+             C 168 -98, 160 -70, 128 -55"
+          fill="none" stroke="#0c0a09" stroke-width="46" stroke-linecap="round"
+          filter="url(#rough)"/>
+    <!-- taper start (thicker brush press) -->
+    <circle cx="138" cy="-30" r="30" fill="#0c0a09" filter="url(#rough)"/>
+    <!-- taper end (dry brush gap near end) -->
+    <path d="M 128 -55 C 135 -52, 142 -48, 138 -42"
+          fill="none" stroke="#0c0a09" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+    <!-- dry brush highlights along the stroke -->
+    <path d="M 80 160 C -30 170, -140 140, -168 60"
+          fill="none" stroke="#fafaf9" stroke-width="6" stroke-linecap="round" opacity="0.55" filter="url(#edgeDry)"/>
+    <path d="M -120 -100 C -60 -170, 40 -180, 110 -140"
+          fill="none" stroke="#fafaf9" stroke-width="5" stroke-linecap="round" opacity="0.45" filter="url(#edgeDry)"/>
+    <!-- ink splatters -->
+    <g fill="#0c0a09">
+      <circle cx="-172" cy="-20" r="4"/>
+      <circle cx="-168" cy="8" r="2.6"/>
+      <circle cx="-160" cy="30" r="1.8"/>
+      <circle cx="150" cy="-88" r="3"/>
+      <circle cx="142" cy="-110" r="1.8"/>
+      <circle cx="-34" cy="186" r="3.4"/>
+      <circle cx="-8" cy="192" r="2"/>
+      <circle cx="18" cy="188" r="1.4"/>
+    </g>
+  </g>
+
+  <!-- Red hanko seal (large, crisp) -->
+  <g transform="translate(372 372) rotate(-5)">
+    <!-- slight under-bleed -->
+    <rect x="-78" y="-78" width="156" height="156" rx="10" fill="#991b1b" opacity="0.5" filter="url(#rough)"/>
+    <rect x="-72" y="-72" width="144" height="144" rx="8" fill="#b91c1c"/>
+    <!-- inner texture -->
+    <rect x="-72" y="-72" width="144" height="144" rx="8" fill="#7f1d1d" opacity="0.18" filter="url(#edgeDry)"/>
+    <!-- border frame -->
+    <rect x="-64" y="-64" width="128" height="128" rx="4" fill="none" stroke="#fef2f2" stroke-width="3.5"/>
+    <text x="0" y="28"
+          font-family="'Hiragino Mincho ProN','Yu Mincho','Songti SC',serif"
+          font-size="118" font-weight="900" fill="#fef2f2" text-anchor="middle">納</text>
+  </g>
+</svg>
