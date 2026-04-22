@@ -1,4 +1,4 @@
-export type UserId = 'rino' | 'haha';
+export type UserId = string;
 
 export interface UserProfile {
   id: UserId;
@@ -26,5 +26,4 @@ export interface Donation {
 export interface AppData {
   users: Record<UserId, UserProfile>;
   donations: Donation[];
-  activeUser: UserId;
 }

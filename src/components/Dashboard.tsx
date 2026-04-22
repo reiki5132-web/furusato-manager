@@ -1,5 +1,5 @@
 import type { AppData, UserId } from '../types';
-import { getTotalDonated } from '../store';
+import { getTotalDonated, getUserList } from '../store';
 
 interface Props {
   data: AppData;
@@ -107,8 +107,9 @@ export default function Dashboard({ data, year }: Props) {
       </div>
       <ReminderBanner year={year} />
       <div className="space-y-3">
-        <UserCard data={data} userId="rino" year={year} />
-        <UserCard data={data} userId="haha" year={year} />
+        {getUserList(data).map(u => (
+          <UserCard key={u.id} data={data} userId={u.id} year={year} />
+        ))}
       </div>
     </div>
   );

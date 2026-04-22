@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { AppData, Donation, UserId } from '../types';
-import { getDonationsByUser } from '../store';
+import { getUserList } from '../store';
 import DonationForm from './DonationForm';
 
 interface Props {
@@ -18,7 +18,9 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
   const [editingId, setEditingId] = useState<string | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
 
-  const allDonations = [...getDonationsByUser(data, 'rino', year), ...getDonationsByUser(data, 'haha', year)]
+  const users = getUserList(data);
+  const allDonations = data.donations
+    .filter(d => d.year === year)
     .sort((a, b) => b.date.localeCompare(a.date));
 
   const filtered = filterUser === 'all' ? allDonations : allDonations.filter(d => d.userId === filterUser);
@@ -47,6 +49,7 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
         <div className="bg-white border border-[#e7e5e4] rounded p-4 mb-4">
           <h2 className="font-mincho font-bold text-[#0c0a09] mb-4">新規寄付を追加</h2>
           <DonationForm
+            users={users}
             year={year}
             onSave={(d) => { onAdd(d); setShowAddForm(false); }}
             onCancel={() => setShowAddForm(false)}
@@ -54,18 +57,28 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
         </div>
       )}
 
-      <div className="flex gap-2 mb-4">
-        {(['all', 'rino', 'haha'] as const).map(uid => (
+      <div className="flex gap-2 mb-4 flex-wrap">
+        <button
+          onClick={() => setFilterUser('all')}
+          className={`text-sm px-4 py-1.5 rounded-full transition-colors ${
+            filterUser === 'all'
+              ? 'bg-[#0c0a09] text-white font-semibold'
+              : 'bg-white text-[#0c0a09] border border-[#e7e5e4]'
+          }`}
+        >
+          全員
+        </button>
+        {users.map(u => (
           <button
-            key={uid}
-            onClick={() => setFilterUser(uid)}
+            key={u.id}
+            onClick={() => setFilterUser(u.id)}
             className={`text-sm px-4 py-1.5 rounded-full transition-colors ${
-              filterUser === uid
+              filterUser === u.id
                 ? 'bg-[#0c0a09] text-white font-semibold'
                 : 'bg-white text-[#0c0a09] border border-[#e7e5e4]'
             }`}
           >
-            {uid === 'all' ? '全員' : data.users[uid].name}
+            {u.name}
           </button>
         ))}
       </div>
@@ -100,6 +113,7 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
                 <>
                   <h3 className="font-mincho font-bold text-[#0c0a09] mb-3">寄付を編集</h3>
                   <DonationForm
+                    users={users}
                     initialData={donation}
                     year={year}
                     onSave={(d) => { onUpdate({ ...d, id: donation.id }); setEditingId(null); }}
@@ -118,7 +132,7 @@ export default function DonationList({ data, year, onAdd, onUpdate, onDelete }: 
                     )}
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
                       <span className="text-[10px] bg-[#fafaf9] border border-[#e7e5e4] text-[#0c0a09] px-2 py-0.5 rounded">
-                        {data.users[donation.userId].name}
+                        {data.users[donation.userId]?.name ?? '?'}
                       </span>
                       <span className="text-[10px] bg-[#fafaf9] border border-[#e7e5e4] text-[#78716c] px-2 py-0.5 rounded">
                         {TAX_LABELS[donation.taxMethod]}
