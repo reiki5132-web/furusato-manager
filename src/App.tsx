@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import type { AppData, Donation, UserProfile } from './types';
 import {
   loadData, saveData,
-  addDonation, updateDonation, deleteDonation, updateUserProfile,
+  addDonation, updateDonation, deleteDonation,
+  updateUserProfile, addUser, deleteUser,
 } from './store';
 import Dashboard from './components/Dashboard';
 import DonationList from './components/DonationList';
@@ -79,6 +80,8 @@ export default function App() {
   const handleUpdateDonation = (d: Donation) => setData(prev => updateDonation(prev, d));
   const handleDeleteDonation = (id: string) => setData(prev => deleteDonation(prev, id));
   const handleUpdateProfile = (p: UserProfile) => setData(prev => updateUserProfile(prev, p));
+  const handleAddUser = (name: string) => setData(prev => addUser(prev, name));
+  const handleDeleteUser = (id: string) => setData(prev => deleteUser(prev, id));
 
   return (
     <div className="min-h-screen wa-asanoha flex flex-col max-w-lg mx-auto">
@@ -118,7 +121,14 @@ export default function App() {
             onUpdate={handleUpdateDonation}
           />
         )}
-        {tab === 'settings' && <Settings data={data} onUpdate={handleUpdateProfile} />}
+        {tab === 'settings' && (
+          <Settings
+            data={data}
+            onUpdate={handleUpdateProfile}
+            onAddUser={handleAddUser}
+            onDeleteUser={handleDeleteUser}
+          />
+        )}
       </main>
 
       {/* Bottom Navigation */}

@@ -65,7 +65,7 @@ export default function GiftTracker({ data, year, onUpdate }: Props) {
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="text-[10px] bg-[#fafaf9] border border-[#e7e5e4] text-[#0c0a09] px-2 py-0.5 rounded shrink-0">
-                      {data.users[d.userId].name}
+                      {data.users[d.userId]?.name ?? '?'}
                     </span>
                     <span className="text-[11px] text-[#78716c] truncate">{d.municipalityName}</span>
                   </div>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import type { Donation, UserId } from '../types';
+import type { Donation, UserId, UserProfile } from '../types';
 
 interface Props {
+  users: UserProfile[];
   initialData?: Donation;
   defaultUserId?: UserId;
   year: number;
@@ -13,9 +14,10 @@ const CATEGORIES = ['食品・飲料', '日用品', '家電', '工芸品', 'ア�
 
 const inputCls = 'w-full border border-[#e7e5e4] rounded px-3 py-2 text-sm bg-white focus:outline-none focus:border-[#b91c1c]';
 
-export default function DonationForm({ initialData, defaultUserId = 'rino', year, onSave, onCancel }: Props) {
+export default function DonationForm({ users, initialData, defaultUserId, year, onSave, onCancel }: Props) {
+  const fallbackUserId = defaultUserId ?? users[0]?.id ?? '';
   const [form, setForm] = useState<Omit<Donation, 'id'>>({
-    userId: initialData?.userId ?? defaultUserId,
+    userId: initialData?.userId ?? fallbackUserId,
     date: initialData?.date ?? `${year}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')}`,
     municipalityName: initialData?.municipalityName ?? '',
     amount: initialData?.amount ?? 0,
@@ -38,19 +40,19 @@ export default function DonationForm({ initialData, defaultUserId = 'rino', year
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label className="block text-xs font-semibold text-[#78716c] mb-1.5">寄付者</label>
-        <div className="flex gap-2">
-          {(['rino', 'haha'] as UserId[]).map(uid => (
+        <div className="flex gap-2 flex-wrap">
+          {users.map(u => (
             <button
-              key={uid}
+              key={u.id}
               type="button"
-              onClick={() => setForm({ ...form, userId: uid })}
-              className={`flex-1 py-2 rounded text-sm font-semibold transition-colors ${
-                form.userId === uid
+              onClick={() => setForm({ ...form, userId: u.id })}
+              className={`flex-1 min-w-[80px] py-2 rounded text-sm font-semibold transition-colors ${
+                form.userId === u.id
                   ? 'bg-[#0c0a09] text-white'
                   : 'bg-white border border-[#e7e5e4] text-[#0c0a09]'
               }`}
             >
-              {uid === 'rino' ? 'りの' : '母'}
+              {u.name}
             </button>
           ))}
         </div>
